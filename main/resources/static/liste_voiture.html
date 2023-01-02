@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var xmlDoc = null;
+    url = 'http://localhost:8080/voitures';
+
+    if (window.XMLHttpRequest) {
+        xmlDoc = new XMLHttpRequest(); //Newer browsers
+    }
+    else if (window.ActiveXObject) //IE 5, 6
+    {
+        xmlDoc = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    if (xmlDoc) {
+
+        xmlDoc.onreadystatechange = function () {
+            if (xmlDoc.readyState == 4 && xmlDoc.status === 200) {
+                //alert(xmlDoc.responseText);
+            }
+
+        }
+        xmlDoc.open("GET", url, true);
+        xmlDoc.send();}
+</script>
+</body>
+</html>
